@@ -1,0 +1,21 @@
+
+{
+    "configurations": [
+        {
+            "name": "windows-gcc-x86",
+            "includePath": [
+                "${workspaceFolder}/**",
+                "C:/Program Files (x86)/Windows Kits/10/Include/10.0.26100.0/um",
+                "C:/Program Files (x86)/Windows Kits/10/Include/10.0.26100.0/shared",
+                "C:/Program Files (x86)/Windows Kits/10/Include/10.0.26100.0/ucrt",
+                "C:/Program Files (x86)/Windows Kits/10/Include/10.0.26100.0/winrt"
+            ],
+            "compilerPath": "C:/Users/Kate/Desktop/downloads/CodeBlocks/MinGW/bin/g++.exe",
+            "cStandard": "c11",
+            "cppStandard": "gnu++11",
+            "intelliSenseMode": "windows-gcc-x86",
+            "compilerArgs": []
+        }
+    ],
+    "version": 4
+}

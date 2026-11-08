@@ -1,0 +1,1093 @@
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\Users\Kate\Desktop\DED-C_Tasks\Task 8 binary tree\akinator.exe,
+
+ВНЕЗАПНО: signal (22, 0x00): SIGABRT: Аварийное завершение программы, вызвана функция abort(). 
+
+Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x00435DC2. Попытка прочесть данные по адресу NULL в модуле C:\Users\Kate\Desktop\DED-C_Tasks\Task 8 binary tree\akinator.exe. Спасибо _txUnhandledExceptionFilter(), что сообщил. Люблю его <3
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#48: TXLib [Ver: 00173a, Rev: 175, Date: 2025-12-31 23:02:50 +0400], Instance: 0x005131DC (32-bit), Flags: Cmdre0, Thread: 0x1858 (Main), GetLastError(): 8 (Недостаточно ресурсов памяти для обработки этой команды), errno: 12 (Not enough space). 
+
+--------------------------------------------------
+Стек вызовов:
+
+
+
+TXLib печалится: Нет информации об исходных файлах. Вы не забыли опцию -g при компиляции?
+
+--------------------------------------------------
+Стек вызовов TX:
+
+# 0 in long int {anonymous}::TX::_txOnExceptionSEH(EXCEPTION_POINTERS*, const char*) at C:\Users\Kate\Desktop\downloads\TX\TXLib.h:11855:
+
+  11853: $       static _tx_thread void* prevAddr = NULL;
+  11854: 
+=>11855: $       if (code != prevCode && addr != prevAddr &&
+  11856:             !strstr (_txDumpSE, "Объект исключения C++:"))
+  11857:             {
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 175, Date: 2025-12-31 23:02:50 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\Users\Kate\Desktop\downloads\TX\TXLib.h
+Compiled:	Nov  8 2026 12:25:09, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Nov 08 2026 12:25:16
+
+Run file:	C:\Users\Kate\Desktop\DED-C_Tasks\Task 8 binary tree\akinator.exe
+Directory:	C:\Users\Kate\Desktop\DED-C_Tasks\Task 8 binary tree
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: C:\Users\Kate\Desktop\DED-C_Tasks\Task 8 binary tree\akinator.exe,
+
+ВНЕЗАПНО: Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x00436F8C в функции afterOpenedBracket() в файле C:/Users/Kate/Desktop/DED-C_Tasks/Task 8 binary tree/binary-tree.cpp на строке 136. Попытка прочесть данные по адресу NULL в модуле C:\Users\Kate\Desktop\DED-C_Tasks\Task 8 binary tree\akinator.exe. Спасибо _txUnhandledExceptionFilter(), что сообщил. Люблю его <3
+
+#1: TXLib [Ver: 00173a, Rev: 175, Date: 2025-12-31 23:02:50 +0400], Instance: 0x005131DC (32-bit), Flags: Cmdre0, Thread: 0xBB8 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00436F8C in C:\Users\Kate\Desktop\DED-C_Tasks\Task 8 binary tree\akinator.exe: afterOpenedBracket() at C:/Users/Kate/Desktop/DED-C_Tasks/Task 8 binary tree/binary-tree.cpp:136:
+
+    134:     char* start = *current;
+    135: 
+=>  136:     while (**current != '"' && **current != '\0') current++;
+    137: 
+    138:     if (**current != '"') {
+
+# 1 0x00436C1D in C:\Users\Kate\Desktop\DED-C_Tasks\Task 8 binary tree\akinator.exe: formBinaryTree() at C:/Users/Kate/Desktop/DED-C_Tasks/Task 8 binary tree/binary-tree.cpp:62:
+
+     60:         else if(*current == '('){
+     61: 
+=>   62:             afterOpenedBracket(binaryTree, &current, &currentNode);
+     63:         }
+     64: 
+
+# 2 0x00436B63 in C:\Users\Kate\Desktop\DED-C_Tasks\Task 8 binary tree\akinator.exe: readBinaryTree() at C:/Users/Kate/Desktop/DED-C_Tasks/Task 8 binary tree/binary-tree.cpp:40:
+
+     38:     FCLOSE(file);
+     39: 
+=>   40:     return formBinaryTree(binaryTree, treeText);
+     41: 
+     42: }
+
+# 3 0x0043794D in C:\Users\Kate\Desktop\DED-C_Tasks\Task 8 binary tree\akinator.exe: main() at C:/Users/Kate/Desktop/DED-C_Tasks/Task 8 binary tree/akinator.cpp:16:
+
+     14:     initBinaryTree(&binaryTree);
+     15: 
+=>   16:     ErrorCode error = readBinaryTree(akinatorFileName, &binaryTree);
+     17:     if(error != ERR_OK) return error;
+     18: 
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 175, Date: 2025-12-31 23:02:50 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\Users\Kate\Desktop\downloads\TX\TXLib.h
+Compiled:	Nov  8 2026 12:29:47, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Nov 08 2026 12:29:50
+
+Run file:	C:\Users\Kate\Desktop\DED-C_Tasks\Task 8 binary tree\akinator.exe
+Directory:	C:\Users\Kate\Desktop\DED-C_Tasks\Task 8 binary tree
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\Users\Kate\Desktop\DED-C_Tasks\Task 8 binary tree\akinator.exe,
+
+ВНЕЗАПНО: signal (11, 0x00): SIGSEGV: Доступ по неверному указателю. Ставьте ассерты! 
+
+Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x00436F8C в функции afterOpenedBracket() в файле C:/Users/Kate/Desktop/DED-C_Tasks/Task 8 binary tree/binary-tree.cpp на строке 136. Попытка прочесть данные по адресу NULL в модуле C:\Users\Kate\Desktop\DED-C_Tasks\Task 8 binary tree\akinator.exe. Спасибо _txUnhandledExceptionFilter(), что сообщил. Люблю его <3
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#2: TXLib [Ver: 00173a, Rev: 175, Date: 2025-12-31 23:02:50 +0400], Instance: 0x005131DC (32-bit), Flags: Cmdre0, Thread: 0xBB8 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00436F8C in C:\Users\Kate\Desktop\DED-C_Tasks\Task 8 binary tree\akinator.exe: afterOpenedBracket() at C:/Users/Kate/Desktop/DED-C_Tasks/Task 8 binary tree/binary-tree.cpp:136:
+
+    134:     char* start = *current;
+    135: 
+=>  136:     while (**current != '"' && **current != '\0') current++;
+    137: 
+    138:     if (**current != '"') {
+
+# 1 0x00436C1D in C:\Users\Kate\Desktop\DED-C_Tasks\Task 8 binary tree\akinator.exe: formBinaryTree() at C:/Users/Kate/Desktop/DED-C_Tasks/Task 8 binary tree/binary-tree.cpp:62:
+
+     60:         else if(*current == '('){
+     61: 
+=>   62:             afterOpenedBracket(binaryTree, &current, &currentNode);
+     63:         }
+     64: 
+
+# 2 0x00436B63 in C:\Users\Kate\Desktop\DED-C_Tasks\Task 8 binary tree\akinator.exe: readBinaryTree() at C:/Users/Kate/Desktop/DED-C_Tasks/Task 8 binary tree/binary-tree.cpp:40:
+
+     38:     FCLOSE(file);
+     39: 
+=>   40:     return formBinaryTree(binaryTree, treeText);
+     41: 
+     42: }
+
+# 3 0x0043794D in C:\Users\Kate\Desktop\DED-C_Tasks\Task 8 binary tree\akinator.exe: main() at C:/Users/Kate/Desktop/DED-C_Tasks/Task 8 binary tree/akinator.cpp:16:
+
+     14:     initBinaryTree(&binaryTree);
+     15: 
+=>   16:     ErrorCode error = readBinaryTree(akinatorFileName, &binaryTree);
+     17:     if(error != ERR_OK) return error;
+     18: 
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 175, Date: 2025-12-31 23:02:50 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\Users\Kate\Desktop\downloads\TX\TXLib.h
+Compiled:	Nov  8 2026 12:29:47, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Nov 08 2026 12:29:50
+
+Run file:	C:\Users\Kate\Desktop\DED-C_Tasks\Task 8 binary tree\akinator.exe
+Directory:	C:\Users\Kate\Desktop\DED-C_Tasks\Task 8 binary tree
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\Users\Kate\Desktop\DED-C_Tasks\Task 8 binary tree\akinator.exe,
+
+ВНЕЗАПНО: signal (22, 0x00): SIGABRT: Аварийное завершение программы, вызвана функция abort(). 
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#1: TXLib [Ver: 00173a, Rev: 175, Date: 2025-12-31 23:02:50 +0400], Instance: 0x005141DC (32-bit), Flags: Cmdre0, Thread: 0x69EC (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00414FFE in C:\Users\Kate\Desktop\DED-C_Tasks\Task 8 binary tree\akinator.exe: (anonymous namespace)::TX::_txOnSignal() at C:/Users/Kate/Desktop/downloads/TX/TXLib.h:11343
+# 1 0x76DD8F03 in C:\WINDOWS\System32\msvcrt.dll: raise()
+# 2 0x76DDD3CB in C:\WINDOWS\System32\msvcrt.dll: abort()
+
+# 3 0x00436A34 in C:\Users\Kate\Desktop\DED-C_Tasks\Task 8 binary tree\akinator.exe: readBinaryTree() at C:/Users/Kate/Desktop/DED-C_Tasks/Task 8 binary tree/binary-tree.cpp:29:
+
+     27:     assert(fileName);
+     28: 
+=>   29:     VERIFY_OK(binaryTree, __func__);
+     30: 
+     31:     FILE* file = fopen(fileName, "r");
+
+# 4 0x004380B9 in C:\Users\Kate\Desktop\DED-C_Tasks\Task 8 binary tree\akinator.exe: main() at C:/Users/Kate/Desktop/DED-C_Tasks/Task 8 binary tree/akinator.cpp:16:
+
+     14:     initBinaryTree(&binaryTree);
+     15: 
+=>   16:     ErrorCode error = readBinaryTree(akinatorFileName, &binaryTree);
+     17:     if(error != ERR_OK) return error;
+     18: 
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 175, Date: 2025-12-31 23:02:50 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\Users\Kate\Desktop\downloads\TX\TXLib.h
+Compiled:	Nov  8 2026 13:09:17, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Nov 08 2026 13:09:20
+
+Run file:	C:\Users\Kate\Desktop\DED-C_Tasks\Task 8 binary tree\akinator.exe
+Directory:	C:\Users\Kate\Desktop\DED-C_Tasks\Task 8 binary tree
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\Users\Kate\Desktop\DED-C_Tasks\Task 8 binary tree\akinator.exe,
+
+ВНЕЗАПНО: signal (22, 0x00): SIGABRT: Аварийное завершение программы, вызвана функция abort(). 
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#1: TXLib [Ver: 00173a, Rev: 175, Date: 2025-12-31 23:02:50 +0400], Instance: 0x005141DC (32-bit), Flags: Cmdre0, Thread: 0x8D6C (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00414FFE in C:\Users\Kate\Desktop\DED-C_Tasks\Task 8 binary tree\akinator.exe: (anonymous namespace)::TX::_txOnSignal() at C:/Users/Kate/Desktop/downloads/TX/TXLib.h:11343
+# 1 0x76DD8F03 in C:\WINDOWS\System32\msvcrt.dll: raise()
+# 2 0x76DDD3CB in C:\WINDOWS\System32\msvcrt.dll: abort()
+
+# 3 0x00436B77 in C:\Users\Kate\Desktop\DED-C_Tasks\Task 8 binary tree\akinator.exe: readBinaryTree() at C:/Users/Kate/Desktop/DED-C_Tasks/Task 8 binary tree/binary-tree.cpp:46:
+
+     44:     FCLOSE(file);
+     45: 
+=>   46:     VERIFY_OK(binaryTree, __func__);
+     47: 
+     48:     return formBinaryTree(binaryTree, treeText);
+
+# 4 0x00437FEE in C:\Users\Kate\Desktop\DED-C_Tasks\Task 8 binary tree\akinator.exe: main() at C:/Users/Kate/Desktop/DED-C_Tasks/Task 8 binary tree/akinator.cpp:16:
+
+     14:     initBinaryTree(&binaryTree);
+     15: 
+=>   16:     ErrorCode error = readBinaryTree(akinatorFileName, &binaryTree);
+     17:     if(error != ERR_OK) return error;
+     18: 
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 175, Date: 2025-12-31 23:02:50 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\Users\Kate\Desktop\downloads\TX\TXLib.h
+Compiled:	Nov  8 2026 13:11:59, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Nov 08 2026 13:12:02
+
+Run file:	C:\Users\Kate\Desktop\DED-C_Tasks\Task 8 binary tree\akinator.exe
+Directory:	C:\Users\Kate\Desktop\DED-C_Tasks\Task 8 binary tree
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\Users\Kate\Desktop\DED-C_Tasks\Task 8 binary tree\akinator.exe,
+
+ВНЕЗАПНО: signal (22, 0x00): SIGABRT: Аварийное завершение программы, вызвана функция abort(). 
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#1: TXLib [Ver: 00173a, Rev: 175, Date: 2025-12-31 23:02:50 +0400], Instance: 0x005141DC (32-bit), Flags: Cmdre0, Thread: 0x9E0 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00414FFE in C:\Users\Kate\Desktop\DED-C_Tasks\Task 8 binary tree\akinator.exe: (anonymous namespace)::TX::_txOnSignal() at C:/Users/Kate/Desktop/downloads/TX/TXLib.h:11343
+# 1 0x76DD8F03 in C:\WINDOWS\System32\msvcrt.dll: raise()
+# 2 0x76DDD3CB in C:\WINDOWS\System32\msvcrt.dll: abort()
+
+# 3 0x00436B77 in C:\Users\Kate\Desktop\DED-C_Tasks\Task 8 binary tree\akinator.exe: readBinaryTree() at C:/Users/Kate/Desktop/DED-C_Tasks/Task 8 binary tree/binary-tree.cpp:46:
+
+     44:     FCLOSE(file);
+     45: 
+=>   46:     VERIFY_OK(binaryTree, __func__);
+     47: 
+     48:     return formBinaryTree(binaryTree, treeText);
+
+# 4 0x00437FE3 in C:\Users\Kate\Desktop\DED-C_Tasks\Task 8 binary tree\akinator.exe: main() at C:/Users/Kate/Desktop/DED-C_Tasks/Task 8 binary tree/akinator.cpp:16:
+
+     14:     initBinaryTree(&binaryTree);
+     15: 
+=>   16:     ErrorCode error = readBinaryTree(akinatorFileName, &binaryTree);
+     17:     if(error != ERR_OK) return error;
+     18: 
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 175, Date: 2025-12-31 23:02:50 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\Users\Kate\Desktop\downloads\TX\TXLib.h
+Compiled:	Nov  8 2026 13:12:15, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Nov 08 2026 13:12:18
+
+Run file:	C:\Users\Kate\Desktop\DED-C_Tasks\Task 8 binary tree\akinator.exe
+Directory:	C:\Users\Kate\Desktop\DED-C_Tasks\Task 8 binary tree
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: C:\Users\Kate\Desktop\DED-C_Tasks\Task 8 binary tree\akinator.exe,
+
+ВНЕЗАПНО: Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x00437A3B в функции verifyNode() в файле C:/Users/Kate/Desktop/DED-C_Tasks/Task 8 binary tree/binary-tree.cpp на строке 382. Попытка прочесть данные по адресу 0x0000000C в модуле C:\Users\Kate\Desktop\DED-C_Tasks\Task 8 binary tree\akinator.exe. Спасибо _txUnhandledExceptionFilter(), что сообщил. Люблю его <3
+
+#1: TXLib [Ver: 00173a, Rev: 175, Date: 2025-12-31 23:02:50 +0400], Instance: 0x005141DC (32-bit), Flags: Cmdre0, Thread: 0x54D4 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00437A3B in C:\Users\Kate\Desktop\DED-C_Tasks\Task 8 binary tree\akinator.exe: verifyNode() at C:/Users/Kate/Desktop/DED-C_Tasks/Task 8 binary tree/binary-tree.cpp:382:
+
+    380:     (*count)++;
+    381: 
+=>  382:     if (node->parent != parent){
+    383:         error_debug debugLogInfo = {};
+    384:         ERROR_STRUCT_FORMAT(&debugLogInfo, function, line, "NULL node", ERR_INVALID_ARGUMENT);
+
+# 1 0x00437B10 in C:\Users\Kate\Desktop\DED-C_Tasks\Task 8 binary tree\akinator.exe: verifyNode() at C:/Users/Kate/Desktop/DED-C_Tasks/Task 8 binary tree/binary-tree.cpp:390:
+
+    388:     };
+    389: 
+=>  390:     if (verifyNode(node->left, node, binaryTree, count, function, line) != ERR_OK){
+    391:         error_debug debugLogInfo = {};
+    392:         ERROR_STRUCT_FORMAT(&debugLogInfo, function, line, "Invalid node", ERR_INVALID_ARGUMENT);
+
+# 2 0x00437B10 in C:\Users\Kate\Desktop\DED-C_Tasks\Task 8 binary tree\akinator.exe: verifyNode() at C:/Users/Kate/Desktop/DED-C_Tasks/Task 8 binary tree/binary-tree.cpp:390:
+
+    388:     };
+    389: 
+=>  390:     if (verifyNode(node->left, node, binaryTree, count, function, line) != ERR_OK){
+    391:         error_debug debugLogInfo = {};
+    392:         ERROR_STRUCT_FORMAT(&debugLogInfo, function, line, "Invalid node", ERR_INVALID_ARGUMENT);
+
+# 3 0x00437B10 in C:\Users\Kate\Desktop\DED-C_Tasks\Task 8 binary tree\akinator.exe: verifyNode() at C:/Users/Kate/Desktop/DED-C_Tasks/Task 8 binary tree/binary-tree.cpp:390:
+
+    388:     };
+    389: 
+=>  390:     if (verifyNode(node->left, node, binaryTree, count, function, line) != ERR_OK){
+    391:         error_debug debugLogInfo = {};
+    392:         ERROR_STRUCT_FORMAT(&debugLogInfo, function, line, "Invalid node", ERR_INVALID_ARGUMENT);
+
+# 4 0x00437963 in C:\Users\Kate\Desktop\DED-C_Tasks\Task 8 binary tree\akinator.exe: verifyBinaryTree() at C:/Users/Kate/Desktop/DED-C_Tasks/Task 8 binary tree/binary-tree.cpp:362:
+
+    360:     size_t count = 0;
+    361: 
+=>  362:     return verifyNode(binaryTree->root, NULL, binaryTree, &count, function, line);
+    363: }
+    364: 
+
+# 5 0x00438284 in C:\Users\Kate\Desktop\DED-C_Tasks\Task 8 binary tree\akinator.exe: playAkinator() at C:/Users/Kate/Desktop/DED-C_Tasks/Task 8 binary tree/akinator.cpp:81:
+
+     79:     assert(binaryTree);
+     80: 
+=>   81:     VERIFY_OK(binaryTree, __func__);
+     82: 
+     83:     if(binaryTree->root == NULL) addRootEl(binaryTree);
+
+# 6 0x00437FD7 in C:\Users\Kate\Desktop\DED-C_Tasks\Task 8 binary tree\akinator.exe: main() at C:/Users/Kate/Desktop/DED-C_Tasks/Task 8 binary tree/akinator.cpp:20:
+
+     18: 
+     19:     do {
+=>   20:         error = playAkinator(&binaryTree);
+     21:         if (error != ERR_OK) return error;
+     22: 
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 175, Date: 2025-12-31 23:02:50 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\Users\Kate\Desktop\downloads\TX\TXLib.h
+Compiled:	Nov  8 2026 13:13:42, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Nov 08 2026 13:13:45
+
+Run file:	C:\Users\Kate\Desktop\DED-C_Tasks\Task 8 binary tree\akinator.exe
+Directory:	C:\Users\Kate\Desktop\DED-C_Tasks\Task 8 binary tree
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\Users\Kate\Desktop\DED-C_Tasks\Task 8 binary tree\akinator.exe,
+
+ВНЕЗАПНО: signal (11, 0x00): SIGSEGV: Доступ по неверному указателю. Ставьте ассерты! 
+
+Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x00437A3B в функции verifyNode() в файле C:/Users/Kate/Desktop/DED-C_Tasks/Task 8 binary tree/binary-tree.cpp на строке 382. Попытка прочесть данные по адресу 0x0000000C в модуле C:\Users\Kate\Desktop\DED-C_Tasks\Task 8 binary tree\akinator.exe. Спасибо _txUnhandledExceptionFilter(), что сообщил. Люблю его <3
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#2: TXLib [Ver: 00173a, Rev: 175, Date: 2025-12-31 23:02:50 +0400], Instance: 0x005141DC (32-bit), Flags: Cmdre0, Thread: 0x54D4 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00437A3B in C:\Users\Kate\Desktop\DED-C_Tasks\Task 8 binary tree\akinator.exe: verifyNode() at C:/Users/Kate/Desktop/DED-C_Tasks/Task 8 binary tree/binary-tree.cpp:382:
+
+    380:     (*count)++;
+    381: 
+=>  382:     if (node->parent != parent){
+    383:         error_debug debugLogInfo = {};
+    384:         ERROR_STRUCT_FORMAT(&debugLogInfo, function, line, "NULL node", ERR_INVALID_ARGUMENT);
+
+# 1 0x00437B10 in C:\Users\Kate\Desktop\DED-C_Tasks\Task 8 binary tree\akinator.exe: verifyNode() at C:/Users/Kate/Desktop/DED-C_Tasks/Task 8 binary tree/binary-tree.cpp:390:
+
+    388:     };
+    389: 
+=>  390:     if (verifyNode(node->left, node, binaryTree, count, function, line) != ERR_OK){
+    391:         error_debug debugLogInfo = {};
+    392:         ERROR_STRUCT_FORMAT(&debugLogInfo, function, line, "Invalid node", ERR_INVALID_ARGUMENT);
+
+# 2 0x00437B10 in C:\Users\Kate\Desktop\DED-C_Tasks\Task 8 binary tree\akinator.exe: verifyNode() at C:/Users/Kate/Desktop/DED-C_Tasks/Task 8 binary tree/binary-tree.cpp:390:
+
+    388:     };
+    389: 
+=>  390:     if (verifyNode(node->left, node, binaryTree, count, function, line) != ERR_OK){
+    391:         error_debug debugLogInfo = {};
+    392:         ERROR_STRUCT_FORMAT(&debugLogInfo, function, line, "Invalid node", ERR_INVALID_ARGUMENT);
+
+# 3 0x00437B10 in C:\Users\Kate\Desktop\DED-C_Tasks\Task 8 binary tree\akinator.exe: verifyNode() at C:/Users/Kate/Desktop/DED-C_Tasks/Task 8 binary tree/binary-tree.cpp:390:
+
+    388:     };
+    389: 
+=>  390:     if (verifyNode(node->left, node, binaryTree, count, function, line) != ERR_OK){
+    391:         error_debug debugLogInfo = {};
+    392:         ERROR_STRUCT_FORMAT(&debugLogInfo, function, line, "Invalid node", ERR_INVALID_ARGUMENT);
+
+# 4 0x00437963 in C:\Users\Kate\Desktop\DED-C_Tasks\Task 8 binary tree\akinator.exe: verifyBinaryTree() at C:/Users/Kate/Desktop/DED-C_Tasks/Task 8 binary tree/binary-tree.cpp:362:
+
+    360:     size_t count = 0;
+    361: 
+=>  362:     return verifyNode(binaryTree->root, NULL, binaryTree, &count, function, line);
+    363: }
+    364: 
+
+# 5 0x00438284 in C:\Users\Kate\Desktop\DED-C_Tasks\Task 8 binary tree\akinator.exe: playAkinator() at C:/Users/Kate/Desktop/DED-C_Tasks/Task 8 binary tree/akinator.cpp:81:
+
+     79:     assert(binaryTree);
+     80: 
+=>   81:     VERIFY_OK(binaryTree, __func__);
+     82: 
+     83:     if(binaryTree->root == NULL) addRootEl(binaryTree);
+
+# 6 0x00437FD7 in C:\Users\Kate\Desktop\DED-C_Tasks\Task 8 binary tree\akinator.exe: main() at C:/Users/Kate/Desktop/DED-C_Tasks/Task 8 binary tree/akinator.cpp:20:
+
+     18: 
+     19:     do {
+=>   20:         error = playAkinator(&binaryTree);
+     21:         if (error != ERR_OK) return error;
+     22: 
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 175, Date: 2025-12-31 23:02:50 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\Users\Kate\Desktop\downloads\TX\TXLib.h
+Compiled:	Nov  8 2026 13:13:42, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Nov 08 2026 13:13:45
+
+Run file:	C:\Users\Kate\Desktop\DED-C_Tasks\Task 8 binary tree\akinator.exe
+Directory:	C:\Users\Kate\Desktop\DED-C_Tasks\Task 8 binary tree
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: C:\Users\Kate\Desktop\DED-C_Tasks\Task 8 binary tree\akinator.exe,
+
+ВНЕЗАПНО: Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x00437C62 в функции printIdentifyStack() в файле C:/Users/Kate/Desktop/DED-C_Tasks/Task 8 binary tree/akinator.cpp на строке 192. Попытка прочесть данные по адресу 0x0000000C в модуле C:\Users\Kate\Desktop\DED-C_Tasks\Task 8 binary tree\akinator.exe. Спасибо _txUnhandledExceptionFilter(), что сообщил. Люблю его <3
+
+#1: TXLib [Ver: 00173a, Rev: 175, Date: 2025-12-31 23:02:50 +0400], Instance: 0x005121DC (32-bit), Flags: Cmdre0, Thread: 0x6FD0 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00437C62 in C:\Users\Kate\Desktop\DED-C_Tasks\Task 8 binary tree\akinator.exe: printIdentifyStack() at C:/Users/Kate/Desktop/DED-C_Tasks/Task 8 binary tree/akinator.cpp:192:
+
+    190:     Node* currentNode = node->parent;
+    191: 
+=>  192:     while(currentNode->parent != NULL){
+    193: 
+    194:         printf("%s|", currentNode->data);
+
+# 1 0x00437BCF in C:\Users\Kate\Desktop\DED-C_Tasks\Task 8 binary tree\akinator.exe: seachValue() at C:/Users/Kate/Desktop/DED-C_Tasks/Task 8 binary tree/akinator.cpp:177:
+
+    175:     assert(node);
+    176: 
+=>  177:     if(strcmp(node->right->data, value) || strcmp(node->left->data, value)) printIdentifyStack(node, value);
+    178: 
+    179:     seachValue(node->left, value);
+
+# 2 0x00437B4E in C:\Users\Kate\Desktop\DED-C_Tasks\Task 8 binary tree\akinator.exe: identifyObject() at C:/Users/Kate/Desktop/DED-C_Tasks/Task 8 binary tree/akinator.cpp:169:
+
+    167:     scanf("%s", value);
+    168: 
+=>  169:     seachValue(binaryTree->root, value);
+    170: 
+    171: }
+
+# 3 0x00437965 in C:\Users\Kate\Desktop\DED-C_Tasks\Task 8 binary tree\akinator.exe: playAkinator() at C:/Users/Kate/Desktop/DED-C_Tasks/Task 8 binary tree/akinator.cpp:94:
+
+     92:             }
+     93:             case IDENTIFY: {
+=>   94:                 identifyObject(binaryTree);
+     95:             }
+     96:             case COMPARISON: {
+
+# 4 0x0043767C in C:\Users\Kate\Desktop\DED-C_Tasks\Task 8 binary tree\akinator.exe: main() at C:/Users/Kate/Desktop/DED-C_Tasks/Task 8 binary tree/akinator.cpp:19:
+
+     17:     if(error != ERR_OK) return error;
+     18: 
+=>   19:     playAkinator(&binaryTree);
+     20: 
+     21:     error = changeFilesComplication(&binaryTree);
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 175, Date: 2025-12-31 23:02:50 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\Users\Kate\Desktop\downloads\TX\TXLib.h
+Compiled:	Nov  8 2026 15:10:59, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Nov 08 2026 15:11:02
+
+Run file:	C:\Users\Kate\Desktop\DED-C_Tasks\Task 8 binary tree\akinator.exe
+Directory:	C:\Users\Kate\Desktop\DED-C_Tasks\Task 8 binary tree
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\Users\Kate\Desktop\DED-C_Tasks\Task 8 binary tree\akinator.exe,
+
+ВНЕЗАПНО: signal (11, 0x00): SIGSEGV: Доступ по неверному указателю. Ставьте ассерты! 
+
+Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x00437C62 в функции printIdentifyStack() в файле C:/Users/Kate/Desktop/DED-C_Tasks/Task 8 binary tree/akinator.cpp на строке 192. Попытка прочесть данные по адресу 0x0000000C в модуле C:\Users\Kate\Desktop\DED-C_Tasks\Task 8 binary tree\akinator.exe. Спасибо _txUnhandledExceptionFilter(), что сообщил. Люблю его <3
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#2: TXLib [Ver: 00173a, Rev: 175, Date: 2025-12-31 23:02:50 +0400], Instance: 0x005121DC (32-bit), Flags: Cmdre0, Thread: 0x6FD0 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00437C62 in C:\Users\Kate\Desktop\DED-C_Tasks\Task 8 binary tree\akinator.exe: printIdentifyStack() at C:/Users/Kate/Desktop/DED-C_Tasks/Task 8 binary tree/akinator.cpp:192:
+
+    190:     Node* currentNode = node->parent;
+    191: 
+=>  192:     while(currentNode->parent != NULL){
+    193: 
+    194:         printf("%s|", currentNode->data);
+
+# 1 0x00437BCF in C:\Users\Kate\Desktop\DED-C_Tasks\Task 8 binary tree\akinator.exe: seachValue() at C:/Users/Kate/Desktop/DED-C_Tasks/Task 8 binary tree/akinator.cpp:177:
+
+    175:     assert(node);
+    176: 
+=>  177:     if(strcmp(node->right->data, value) || strcmp(node->left->data, value)) printIdentifyStack(node, value);
+    178: 
+    179:     seachValue(node->left, value);
+
+# 2 0x00437B4E in C:\Users\Kate\Desktop\DED-C_Tasks\Task 8 binary tree\akinator.exe: identifyObject() at C:/Users/Kate/Desktop/DED-C_Tasks/Task 8 binary tree/akinator.cpp:169:
+
+    167:     scanf("%s", value);
+    168: 
+=>  169:     seachValue(binaryTree->root, value);
+    170: 
+    171: }
+
+# 3 0x00437965 in C:\Users\Kate\Desktop\DED-C_Tasks\Task 8 binary tree\akinator.exe: playAkinator() at C:/Users/Kate/Desktop/DED-C_Tasks/Task 8 binary tree/akinator.cpp:94:
+
+     92:             }
+     93:             case IDENTIFY: {
+=>   94:                 identifyObject(binaryTree);
+     95:             }
+     96:             case COMPARISON: {
+
+# 4 0x0043767C in C:\Users\Kate\Desktop\DED-C_Tasks\Task 8 binary tree\akinator.exe: main() at C:/Users/Kate/Desktop/DED-C_Tasks/Task 8 binary tree/akinator.cpp:19:
+
+     17:     if(error != ERR_OK) return error;
+     18: 
+=>   19:     playAkinator(&binaryTree);
+     20: 
+     21:     error = changeFilesComplication(&binaryTree);
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 175, Date: 2025-12-31 23:02:50 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\Users\Kate\Desktop\downloads\TX\TXLib.h
+Compiled:	Nov  8 2026 15:10:59, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Nov 08 2026 15:11:02
+
+Run file:	C:\Users\Kate\Desktop\DED-C_Tasks\Task 8 binary tree\akinator.exe
+Directory:	C:\Users\Kate\Desktop\DED-C_Tasks\Task 8 binary tree
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: C:\Users\Kate\Desktop\DED-C_Tasks\Task 8 binary tree\akinator.exe,
+
+ВНЕЗАПНО: Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x00437C76 в функции printIdentifyStack() в файле C:/Users/Kate/Desktop/DED-C_Tasks/Task 8 binary tree/akinator.cpp на строке 192. Попытка прочесть данные по адресу 0x0000000C в модуле C:\Users\Kate\Desktop\DED-C_Tasks\Task 8 binary tree\akinator.exe. Спасибо _txUnhandledExceptionFilter(), что сообщил. Люблю его <3
+
+#1: TXLib [Ver: 00173a, Rev: 175, Date: 2025-12-31 23:02:50 +0400], Instance: 0x005121DC (32-bit), Flags: Cmdre0, Thread: 0x464C (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00437C76 in C:\Users\Kate\Desktop\DED-C_Tasks\Task 8 binary tree\akinator.exe: printIdentifyStack() at C:/Users/Kate/Desktop/DED-C_Tasks/Task 8 binary tree/akinator.cpp:192:
+
+    190:     Node* currentNode = node->parent;
+    191: 
+=>  192:     while(currentNode->parent != NULL){
+    193: 
+    194:         printf("%s|", currentNode->data);
+
+# 1 0x00437BCF in C:\Users\Kate\Desktop\DED-C_Tasks\Task 8 binary tree\akinator.exe: seachValue() at C:/Users/Kate/Desktop/DED-C_Tasks/Task 8 binary tree/akinator.cpp:177:
+
+    175:     assert(node);
+    176: 
+=>  177:     if(strcmp(node->right->data, value) || strcmp(node->left->data, value)) printIdentifyStack(node, value);
+    178: 
+    179:     if(node->left != NULL) seachValue(node->left, value);
+
+# 2 0x00437B4E in C:\Users\Kate\Desktop\DED-C_Tasks\Task 8 binary tree\akinator.exe: identifyObject() at C:/Users/Kate/Desktop/DED-C_Tasks/Task 8 binary tree/akinator.cpp:169:
+
+    167:     scanf("%s", value);
+    168: 
+=>  169:     seachValue(binaryTree->root, value);
+    170: 
+    171: }
+
+# 3 0x00437965 in C:\Users\Kate\Desktop\DED-C_Tasks\Task 8 binary tree\akinator.exe: playAkinator() at C:/Users/Kate/Desktop/DED-C_Tasks/Task 8 binary tree/akinator.cpp:94:
+
+     92:             }
+     93:             case IDENTIFY: {
+=>   94:                 identifyObject(binaryTree);
+     95:             }
+     96:             case COMPARISON: {
+
+# 4 0x0043767C in C:\Users\Kate\Desktop\DED-C_Tasks\Task 8 binary tree\akinator.exe: main() at C:/Users/Kate/Desktop/DED-C_Tasks/Task 8 binary tree/akinator.cpp:19:
+
+     17:     if(error != ERR_OK) return error;
+     18: 
+=>   19:     playAkinator(&binaryTree);
+     20: 
+     21:     error = changeFilesComplication(&binaryTree);
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 175, Date: 2025-12-31 23:02:50 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\Users\Kate\Desktop\downloads\TX\TXLib.h
+Compiled:	Nov  8 2026 15:13:15, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Nov 08 2026 15:13:18
+
+Run file:	C:\Users\Kate\Desktop\DED-C_Tasks\Task 8 binary tree\akinator.exe
+Directory:	C:\Users\Kate\Desktop\DED-C_Tasks\Task 8 binary tree
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\Users\Kate\Desktop\DED-C_Tasks\Task 8 binary tree\akinator.exe,
+
+ВНЕЗАПНО: signal (11, 0x00): SIGSEGV: Доступ по неверному указателю. Ставьте ассерты! 
+
+Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x00437C76 в функции printIdentifyStack() в файле C:/Users/Kate/Desktop/DED-C_Tasks/Task 8 binary tree/akinator.cpp на строке 192. Попытка прочесть данные по адресу 0x0000000C в модуле C:\Users\Kate\Desktop\DED-C_Tasks\Task 8 binary tree\akinator.exe. Спасибо _txUnhandledExceptionFilter(), что сообщил. Люблю его <3
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#2: TXLib [Ver: 00173a, Rev: 175, Date: 2025-12-31 23:02:50 +0400], Instance: 0x005121DC (32-bit), Flags: Cmdre0, Thread: 0x464C (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00437C76 in C:\Users\Kate\Desktop\DED-C_Tasks\Task 8 binary tree\akinator.exe: printIdentifyStack() at C:/Users/Kate/Desktop/DED-C_Tasks/Task 8 binary tree/akinator.cpp:192:
+
+    190:     Node* currentNode = node->parent;
+    191: 
+=>  192:     while(currentNode->parent != NULL){
+    193: 
+    194:         printf("%s|", currentNode->data);
+
+# 1 0x00437BCF in C:\Users\Kate\Desktop\DED-C_Tasks\Task 8 binary tree\akinator.exe: seachValue() at C:/Users/Kate/Desktop/DED-C_Tasks/Task 8 binary tree/akinator.cpp:177:
+
+    175:     assert(node);
+    176: 
+=>  177:     if(strcmp(node->right->data, value) || strcmp(node->left->data, value)) printIdentifyStack(node, value);
+    178: 
+    179:     if(node->left != NULL) seachValue(node->left, value);
+
+# 2 0x00437B4E in C:\Users\Kate\Desktop\DED-C_Tasks\Task 8 binary tree\akinator.exe: identifyObject() at C:/Users/Kate/Desktop/DED-C_Tasks/Task 8 binary tree/akinator.cpp:169:
+
+    167:     scanf("%s", value);
+    168: 
+=>  169:     seachValue(binaryTree->root, value);
+    170: 
+    171: }
+
+# 3 0x00437965 in C:\Users\Kate\Desktop\DED-C_Tasks\Task 8 binary tree\akinator.exe: playAkinator() at C:/Users/Kate/Desktop/DED-C_Tasks/Task 8 binary tree/akinator.cpp:94:
+
+     92:             }
+     93:             case IDENTIFY: {
+=>   94:                 identifyObject(binaryTree);
+     95:             }
+     96:             case COMPARISON: {
+
+# 4 0x0043767C in C:\Users\Kate\Desktop\DED-C_Tasks\Task 8 binary tree\akinator.exe: main() at C:/Users/Kate/Desktop/DED-C_Tasks/Task 8 binary tree/akinator.cpp:19:
+
+     17:     if(error != ERR_OK) return error;
+     18: 
+=>   19:     playAkinator(&binaryTree);
+     20: 
+     21:     error = changeFilesComplication(&binaryTree);
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 175, Date: 2025-12-31 23:02:50 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\Users\Kate\Desktop\downloads\TX\TXLib.h
+Compiled:	Nov  8 2026 15:13:15, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Nov 08 2026 15:13:18
+
+Run file:	C:\Users\Kate\Desktop\DED-C_Tasks\Task 8 binary tree\akinator.exe
+Directory:	C:\Users\Kate\Desktop\DED-C_Tasks\Task 8 binary tree
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: C:\Users\Kate\Desktop\DED-C_Tasks\Task 8 binary tree\akinator.exe,
+
+ВНЕЗАПНО: Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x00437CE1 в функции printPathFromRoot() в файле C:/Users/Kate/Desktop/DED-C_Tasks/Task 8 binary tree/akinator.cpp на строке 219. Попытка прочесть данные по адресу 0x00000004 в модуле C:\Users\Kate\Desktop\DED-C_Tasks\Task 8 binary tree\akinator.exe. Спасибо _txUnhandledExceptionFilter(), что сообщил. Люблю его <3
+
+#1: TXLib [Ver: 00173a, Rev: 175, Date: 2025-12-31 23:02:50 +0400], Instance: 0x005131DC (32-bit), Flags: Cmdre0, Thread: 0x1C80 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00437CE1 in C:\Users\Kate\Desktop\DED-C_Tasks\Task 8 binary tree\akinator.exe: printPathFromRoot() at C:/Users/Kate/Desktop/DED-C_Tasks/Task 8 binary tree/akinator.cpp:219:
+
+    217:     printPathFromRoot(node->parent);
+    218: 
+=>  219:     if(node->parent == NULL && node->parent->left == node){
+    220:         printf("НЕ %s | ", node->data);
+    221:     }
+
+# 1 0x00437CD1 in C:\Users\Kate\Desktop\DED-C_Tasks\Task 8 binary tree\akinator.exe: printPathFromRoot() at C:/Users/Kate/Desktop/DED-C_Tasks/Task 8 binary tree/akinator.cpp:217:
+
+    215:     if (node == NULL) return;
+    216: 
+=>  217:     printPathFromRoot(node->parent);
+    218: 
+    219:     if(node->parent == NULL && node->parent->left == node){
+
+# 2 0x00437CD1 in C:\Users\Kate\Desktop\DED-C_Tasks\Task 8 binary tree\akinator.exe: printPathFromRoot() at C:/Users/Kate/Desktop/DED-C_Tasks/Task 8 binary tree/akinator.cpp:217:
+
+    215:     if (node == NULL) return;
+    216: 
+=>  217:     printPathFromRoot(node->parent);
+    218: 
+    219:     if(node->parent == NULL && node->parent->left == node){
+
+# 3 0x00437CD1 in C:\Users\Kate\Desktop\DED-C_Tasks\Task 8 binary tree\akinator.exe: printPathFromRoot() at C:/Users/Kate/Desktop/DED-C_Tasks/Task 8 binary tree/akinator.cpp:217:
+
+    215:     if (node == NULL) return;
+    216: 
+=>  217:     printPathFromRoot(node->parent);
+    218: 
+    219:     if(node->parent == NULL && node->parent->left == node){
+
+# 4 0x00437CD1 in C:\Users\Kate\Desktop\DED-C_Tasks\Task 8 binary tree\akinator.exe: printPathFromRoot() at C:/Users/Kate/Desktop/DED-C_Tasks/Task 8 binary tree/akinator.cpp:217:
+
+    215:     if (node == NULL) return;
+    216: 
+=>  217:     printPathFromRoot(node->parent);
+    218: 
+    219:     if(node->parent == NULL && node->parent->left == node){
+
+# 5 0x00437CA7 in C:\Users\Kate\Desktop\DED-C_Tasks\Task 8 binary tree\akinator.exe: printIdentify() at C:/Users/Kate/Desktop/DED-C_Tasks/Task 8 binary tree/akinator.cpp:208:
+
+    206:     printf("\nОпределение '%s':\n| ", value);
+    207: 
+=>  208:     printPathFromRoot(node);
+    209: 
+    210:     printf("\n");
+
+# 6 0x00437C13 in C:\Users\Kate\Desktop\DED-C_Tasks\Task 8 binary tree\akinator.exe: seachValue() at C:/Users/Kate/Desktop/DED-C_Tasks/Task 8 binary tree/akinator.cpp:186:
+
+    184:     if(node->data != NULL && strcmp(node->data, value) == 0){
+    185: 
+=>  186:         printIdentify(node, value);
+    187:         return true;
+    188:     }
+
+# 7 0x00437C4F in C:\Users\Kate\Desktop\DED-C_Tasks\Task 8 binary tree\akinator.exe: seachValue() at C:/Users/Kate/Desktop/DED-C_Tasks/Task 8 binary tree/akinator.cpp:194:
+
+    192:     }
+    193: 
+=>  194:     if (seachValue(node->right, value)) {
+    195:         return true;
+    196:     }
+
+# 8 0x00437C2F in C:\Users\Kate\Desktop\DED-C_Tasks\Task 8 binary tree\akinator.exe: seachValue() at C:/Users/Kate/Desktop/DED-C_Tasks/Task 8 binary tree/akinator.cpp:190:
+
+    188:     }
+    189: 
+=>  190:     if (seachValue(node->left, value)) {
+    191:         return true;
+    192:     }
+
+# 9 0x00437C4F in C:\Users\Kate\Desktop\DED-C_Tasks\Task 8 binary tree\akinator.exe: seachValue() at C:/Users/Kate/Desktop/DED-C_Tasks/Task 8 binary tree/akinator.cpp:194:
+
+    192:     }
+    193: 
+=>  194:     if (seachValue(node->right, value)) {
+    195:         return true;
+    196:     }
+
+#10 0x00437C2F in C:\Users\Kate\Desktop\DED-C_Tasks\Task 8 binary tree\akinator.exe: seachValue() at C:/Users/Kate/Desktop/DED-C_Tasks/Task 8 binary tree/akinator.cpp:190:
+
+    188:     }
+    189: 
+=>  190:     if (seachValue(node->left, value)) {
+    191:         return true;
+    192:     }
+
+#11 0x00437B9B in C:\Users\Kate\Desktop\DED-C_Tasks\Task 8 binary tree\akinator.exe: identifyObject() at C:/Users/Kate/Desktop/DED-C_Tasks/Task 8 binary tree/akinator.cpp:176:
+
+    174:     scanf("%s", value);
+    175: 
+=>  176:     bool result = seachValue(binaryTree->root, value);
+    177:     if(!result) printf("Объекта '%s' не существует в нашей базе.\n", value);
+    178: }
+
+#12 0x00437967 in C:\Users\Kate\Desktop\DED-C_Tasks\Task 8 binary tree\akinator.exe: playAkinator() at C:/Users/Kate/Desktop/DED-C_Tasks/Task 8 binary tree/akinator.cpp:95:
+
+     93:             }
+     94:             case IDENTIFY: {
+=>   95:                 identifyObject(binaryTree);
+     96:                 break;
+     97:             }
+
+#13 0x0043767C in C:\Users\Kate\Desktop\DED-C_Tasks\Task 8 binary tree\akinator.exe: main() at C:/Users/Kate/Desktop/DED-C_Tasks/Task 8 binary tree/akinator.cpp:19:
+
+     17:     if(error != ERR_OK) return error;
+     18: 
+=>   19:     playAkinator(&binaryTree);
+     20: 
+     21:     error = changeFilesComplication(&binaryTree);
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 175, Date: 2025-12-31 23:02:50 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\Users\Kate\Desktop\downloads\TX\TXLib.h
+Compiled:	Nov  8 2026 15:46:45, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Nov 08 2026 15:46:49
+
+Run file:	C:\Users\Kate\Desktop\DED-C_Tasks\Task 8 binary tree\akinator.exe
+Directory:	C:\Users\Kate\Desktop\DED-C_Tasks\Task 8 binary tree
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\Users\Kate\Desktop\DED-C_Tasks\Task 8 binary tree\akinator.exe,
+
+ВНЕЗАПНО: signal (11, 0x00): SIGSEGV: Доступ по неверному указателю. Ставьте ассерты! 
+
+Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x00437CE1 в функции printPathFromRoot() в файле C:/Users/Kate/Desktop/DED-C_Tasks/Task 8 binary tree/akinator.cpp на строке 219. Попытка прочесть данные по адресу 0x00000004 в модуле C:\Users\Kate\Desktop\DED-C_Tasks\Task 8 binary tree\akinator.exe. Спасибо _txUnhandledExceptionFilter(), что сообщил. Люблю его <3
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#2: TXLib [Ver: 00173a, Rev: 175, Date: 2025-12-31 23:02:50 +0400], Instance: 0x005131DC (32-bit), Flags: Cmdre0, Thread: 0x1C80 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00437CE1 in C:\Users\Kate\Desktop\DED-C_Tasks\Task 8 binary tree\akinator.exe: printPathFromRoot() at C:/Users/Kate/Desktop/DED-C_Tasks/Task 8 binary tree/akinator.cpp:219:
+
+    217:     printPathFromRoot(node->parent);
+    218: 
+=>  219:     if(node->parent == NULL && node->parent->left == node){
+    220:         printf("НЕ %s | ", node->data);
+    221:     }
+
+# 1 0x00437CD1 in C:\Users\Kate\Desktop\DED-C_Tasks\Task 8 binary tree\akinator.exe: printPathFromRoot() at C:/Users/Kate/Desktop/DED-C_Tasks/Task 8 binary tree/akinator.cpp:217:
+
+    215:     if (node == NULL) return;
+    216: 
+=>  217:     printPathFromRoot(node->parent);
+    218: 
+    219:     if(node->parent == NULL && node->parent->left == node){
+
+# 2 0x00437CD1 in C:\Users\Kate\Desktop\DED-C_Tasks\Task 8 binary tree\akinator.exe: printPathFromRoot() at C:/Users/Kate/Desktop/DED-C_Tasks/Task 8 binary tree/akinator.cpp:217:
+
+    215:     if (node == NULL) return;
+    216: 
+=>  217:     printPathFromRoot(node->parent);
+    218: 
+    219:     if(node->parent == NULL && node->parent->left == node){
+
+# 3 0x00437CD1 in C:\Users\Kate\Desktop\DED-C_Tasks\Task 8 binary tree\akinator.exe: printPathFromRoot() at C:/Users/Kate/Desktop/DED-C_Tasks/Task 8 binary tree/akinator.cpp:217:
+
+    215:     if (node == NULL) return;
+    216: 
+=>  217:     printPathFromRoot(node->parent);
+    218: 
+    219:     if(node->parent == NULL && node->parent->left == node){
+
+# 4 0x00437CD1 in C:\Users\Kate\Desktop\DED-C_Tasks\Task 8 binary tree\akinator.exe: printPathFromRoot() at C:/Users/Kate/Desktop/DED-C_Tasks/Task 8 binary tree/akinator.cpp:217:
+
+    215:     if (node == NULL) return;
+    216: 
+=>  217:     printPathFromRoot(node->parent);
+    218: 
+    219:     if(node->parent == NULL && node->parent->left == node){
+
+# 5 0x00437CA7 in C:\Users\Kate\Desktop\DED-C_Tasks\Task 8 binary tree\akinator.exe: printIdentify() at C:/Users/Kate/Desktop/DED-C_Tasks/Task 8 binary tree/akinator.cpp:208:
+
+    206:     printf("\nОпределение '%s':\n| ", value);
+    207: 
+=>  208:     printPathFromRoot(node);
+    209: 
+    210:     printf("\n");
+
+# 6 0x00437C13 in C:\Users\Kate\Desktop\DED-C_Tasks\Task 8 binary tree\akinator.exe: seachValue() at C:/Users/Kate/Desktop/DED-C_Tasks/Task 8 binary tree/akinator.cpp:186:
+
+    184:     if(node->data != NULL && strcmp(node->data, value) == 0){
+    185: 
+=>  186:         printIdentify(node, value);
+    187:         return true;
+    188:     }
+
+# 7 0x00437C4F in C:\Users\Kate\Desktop\DED-C_Tasks\Task 8 binary tree\akinator.exe: seachValue() at C:/Users/Kate/Desktop/DED-C_Tasks/Task 8 binary tree/akinator.cpp:194:
+
+    192:     }
+    193: 
+=>  194:     if (seachValue(node->right, value)) {
+    195:         return true;
+    196:     }
+
+# 8 0x00437C2F in C:\Users\Kate\Desktop\DED-C_Tasks\Task 8 binary tree\akinator.exe: seachValue() at C:/Users/Kate/Desktop/DED-C_Tasks/Task 8 binary tree/akinator.cpp:190:
+
+    188:     }
+    189: 
+=>  190:     if (seachValue(node->left, value)) {
+    191:         return true;
+    192:     }
+
+# 9 0x00437C4F in C:\Users\Kate\Desktop\DED-C_Tasks\Task 8 binary tree\akinator.exe: seachValue() at C:/Users/Kate/Desktop/DED-C_Tasks/Task 8 binary tree/akinator.cpp:194:
+
+    192:     }
+    193: 
+=>  194:     if (seachValue(node->right, value)) {
+    195:         return true;
+    196:     }
+
+#10 0x00437C2F in C:\Users\Kate\Desktop\DED-C_Tasks\Task 8 binary tree\akinator.exe: seachValue() at C:/Users/Kate/Desktop/DED-C_Tasks/Task 8 binary tree/akinator.cpp:190:
+
+    188:     }
+    189: 
+=>  190:     if (seachValue(node->left, value)) {
+    191:         return true;
+    192:     }
+
+#11 0x00437B9B in C:\Users\Kate\Desktop\DED-C_Tasks\Task 8 binary tree\akinator.exe: identifyObject() at C:/Users/Kate/Desktop/DED-C_Tasks/Task 8 binary tree/akinator.cpp:176:
+
+    174:     scanf("%s", value);
+    175: 
+=>  176:     bool result = seachValue(binaryTree->root, value);
+    177:     if(!result) printf("Объекта '%s' не существует в нашей базе.\n", value);
+    178: }
+
+#12 0x00437967 in C:\Users\Kate\Desktop\DED-C_Tasks\Task 8 binary tree\akinator.exe: playAkinator() at C:/Users/Kate/Desktop/DED-C_Tasks/Task 8 binary tree/akinator.cpp:95:
+
+     93:             }
+     94:             case IDENTIFY: {
+=>   95:                 identifyObject(binaryTree);
+     96:                 break;
+     97:             }
+
+#13 0x0043767C in C:\Users\Kate\Desktop\DED-C_Tasks\Task 8 binary tree\akinator.exe: main() at C:/Users/Kate/Desktop/DED-C_Tasks/Task 8 binary tree/akinator.cpp:19:
+
+     17:     if(error != ERR_OK) return error;
+     18: 
+=>   19:     playAkinator(&binaryTree);
+     20: 
+     21:     error = changeFilesComplication(&binaryTree);
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 175, Date: 2025-12-31 23:02:50 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\Users\Kate\Desktop\downloads\TX\TXLib.h
+Compiled:	Nov  8 2026 15:46:45, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Nov 08 2026 15:46:49
+
+Run file:	C:\Users\Kate\Desktop\DED-C_Tasks\Task 8 binary tree\akinator.exe
+Directory:	C:\Users\Kate\Desktop\DED-C_Tasks\Task 8 binary tree
+
+--------------------------------------------------

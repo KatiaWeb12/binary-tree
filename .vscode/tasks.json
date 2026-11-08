@@ -1,0 +1,42 @@
+
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Build Akinator",
+            "type": "shell",
+            "command": "C:/Users/Kate/Desktop/downloads/CodeBlocks/MinGW/bin/g++.exe",
+            "args": [
+                "-g",
+                "-Wall",
+                "-Wextra",
+
+                "-I",
+                "C:/Program Files (x86)/Windows Kits/10/Include/10.0.26100.0/um",
+                "-I",
+                "C:/Program Files (x86)/Windows Kits/10/Include/10.0.26100.0/shared",
+                "-I",
+                "C:/Program Files (x86)/Windows Kits/10/Include/10.0.26100.0/ucrt",
+                "-I",
+                "C:/Program Files (x86)/Windows Kits/10/Include/10.0.26100.0/winrt"
+
+                "akinator.cpp",
+                "-o",
+                "akinator.exe",
+
+                "-lsapi",
+                "-lole32",
+                "-loleaut32",
+                "-luuid"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": ["$gcc"]
+        }
+    ]
+}

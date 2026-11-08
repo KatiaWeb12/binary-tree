@@ -1,0 +1,348 @@
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\Users\Kate\Desktop\DED-C_Tasks\Task 8 binary tree\tree-sorting.exe,
+
+ВНЕЗАПНО: signal (22, 0x00): SIGABRT: Аварийное завершение программы, вызвана функция abort(). 
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#1: TXLib [Ver: 00173a, Rev: 175, Date: 2025-12-31 23:02:50 +0400], Instance: 0x005131DC (32-bit), Flags: Cmdre0, Thread: 0x16A4 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00414FFE in C:\Users\Kate\Desktop\DED-C_Tasks\Task 8 binary tree\tree-sorting.exe: (anonymous namespace)::TX::_txOnSignal() at C:/Users/Kate/Desktop/downloads/TX/TXLib.h:11343
+# 1 0x76DD8F03 in C:\WINDOWS\System32\msvcrt.dll: raise()
+# 2 0x76DDD3CB in C:\WINDOWS\System32\msvcrt.dll: abort()
+# 3 0x76DD9D47 in C:\WINDOWS\System32\msvcrt.dll: assert()
+
+# 4 0x0043758F in C:\Users\Kate\Desktop\DED-C_Tasks\Task 8 binary tree\tree-sorting.exe: printSortedTreeNode() at C:/Users/Kate/Desktop/DED-C_Tasks/Task 8 binary tree/tree-sorting.cpp:62:
+
+     60: void printSortedTreeNode(const Node* node){
+     61: 
+=>   62:     assert(node);
+     63: 
+     64:     if (node->left != NULL) {
+
+# 5 0x00437565 in C:\Users\Kate\Desktop\DED-C_Tasks\Task 8 binary tree\tree-sorting.exe: printSortedTree() at C:/Users/Kate/Desktop/DED-C_Tasks/Task 8 binary tree/tree-sorting.cpp:57:
+
+     55: void printSortedTree(BinaryTree_t* binaryTree){
+     56: 
+=>   57:     printSortedTreeNode(binaryTree->root);
+     58: }
+     59: 
+
+# 6 0x0043741C in C:\Users\Kate\Desktop\DED-C_Tasks\Task 8 binary tree\tree-sorting.exe: main() at C:/Users/Kate/Desktop/DED-C_Tasks/Task 8 binary tree/tree-sorting.cpp:18:
+
+     16:     treeSorting(arr, size, &binaryTree);
+     17: 
+=>   18:     printSortedTree(&binaryTree);
+     19: 
+     20:     destroyBinaryTree(&binaryTree);
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 175, Date: 2025-12-31 23:02:50 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\Users\Kate\Desktop\downloads\TX\TXLib.h
+Compiled:	Nov  8 2026 10:52:16, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Nov 08 2026 10:52:21
+
+Run file:	C:\Users\Kate\Desktop\DED-C_Tasks\Task 8 binary tree\tree-sorting.exe
+Directory:	C:\Users\Kate\Desktop\DED-C_Tasks\Task 8 binary tree
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: C:\Users\Kate\Desktop\DED-C_Tasks\Task 8 binary tree\tree-sorting.exe,
+
+ВНЕЗАПНО: Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x00437636 в функции insertObject() в файле C:/Users/Kate/Desktop/DED-C_Tasks/Task 8 binary tree/tree-sorting.cpp на строке 85. Попытка прочесть данные по адресу 0x00000008 в модуле C:\Users\Kate\Desktop\DED-C_Tasks\Task 8 binary tree\tree-sorting.exe. Спасибо _txUnhandledExceptionFilter(), что сообщил. Люблю его <3
+
+#1: TXLib [Ver: 00173a, Rev: 175, Date: 2025-12-31 23:02:50 +0400], Instance: 0x005131DC (32-bit), Flags: Cmdre0, Thread: 0x2DDC (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00437636 in C:\Users\Kate\Desktop\DED-C_Tasks\Task 8 binary tree\tree-sorting.exe: insertObject() at C:/Users/Kate/Desktop/DED-C_Tasks/Task 8 binary tree/tree-sorting.cpp:85:
+
+     83:     Node* parent = NULL;
+     84: 
+=>   85:     while(currentNode->right != NULL && currentNode->left != NULL){
+     86: 
+     87:         parent = currentNode;
+
+# 1 0x00437531 in C:\Users\Kate\Desktop\DED-C_Tasks\Task 8 binary tree\tree-sorting.exe: treeSorting() at C:/Users/Kate/Desktop/DED-C_Tasks/Task 8 binary tree/tree-sorting.cpp:48:
+
+     46:     for (size_t i = 0; i < size; i++) {
+     47: 
+=>   48:         ErrorCode error = insertObject(binaryTree, arr[i]);
+     49:         if (error != ERR_OK) return error;
+     50:     }
+
+# 2 0x00437410 in C:\Users\Kate\Desktop\DED-C_Tasks\Task 8 binary tree\tree-sorting.exe: main() at C:/Users/Kate/Desktop/DED-C_Tasks/Task 8 binary tree/tree-sorting.cpp:16:
+
+     14:     initBinaryTree(&binaryTree);
+     15: 
+=>   16:     treeSorting(arr, size, &binaryTree);
+     17: 
+     18:     printSortedTree(&binaryTree);
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 175, Date: 2025-12-31 23:02:50 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\Users\Kate\Desktop\downloads\TX\TXLib.h
+Compiled:	Nov  8 2026 10:52:31, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Nov 08 2026 10:52:34
+
+Run file:	C:\Users\Kate\Desktop\DED-C_Tasks\Task 8 binary tree\tree-sorting.exe
+Directory:	C:\Users\Kate\Desktop\DED-C_Tasks\Task 8 binary tree
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\Users\Kate\Desktop\DED-C_Tasks\Task 8 binary tree\tree-sorting.exe,
+
+ВНЕЗАПНО: signal (11, 0x00): SIGSEGV: Доступ по неверному указателю. Ставьте ассерты! 
+
+Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x00437636 в функции insertObject() в файле C:/Users/Kate/Desktop/DED-C_Tasks/Task 8 binary tree/tree-sorting.cpp на строке 85. Попытка прочесть данные по адресу 0x00000008 в модуле C:\Users\Kate\Desktop\DED-C_Tasks\Task 8 binary tree\tree-sorting.exe. Спасибо _txUnhandledExceptionFilter(), что сообщил. Люблю его <3
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#2: TXLib [Ver: 00173a, Rev: 175, Date: 2025-12-31 23:02:50 +0400], Instance: 0x005131DC (32-bit), Flags: Cmdre0, Thread: 0x2DDC (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00437636 in C:\Users\Kate\Desktop\DED-C_Tasks\Task 8 binary tree\tree-sorting.exe: insertObject() at C:/Users/Kate/Desktop/DED-C_Tasks/Task 8 binary tree/tree-sorting.cpp:85:
+
+     83:     Node* parent = NULL;
+     84: 
+=>   85:     while(currentNode->right != NULL && currentNode->left != NULL){
+     86: 
+     87:         parent = currentNode;
+
+# 1 0x00437531 in C:\Users\Kate\Desktop\DED-C_Tasks\Task 8 binary tree\tree-sorting.exe: treeSorting() at C:/Users/Kate/Desktop/DED-C_Tasks/Task 8 binary tree/tree-sorting.cpp:48:
+
+     46:     for (size_t i = 0; i < size; i++) {
+     47: 
+=>   48:         ErrorCode error = insertObject(binaryTree, arr[i]);
+     49:         if (error != ERR_OK) return error;
+     50:     }
+
+# 2 0x00437410 in C:\Users\Kate\Desktop\DED-C_Tasks\Task 8 binary tree\tree-sorting.exe: main() at C:/Users/Kate/Desktop/DED-C_Tasks/Task 8 binary tree/tree-sorting.cpp:16:
+
+     14:     initBinaryTree(&binaryTree);
+     15: 
+=>   16:     treeSorting(arr, size, &binaryTree);
+     17: 
+     18:     printSortedTree(&binaryTree);
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 175, Date: 2025-12-31 23:02:50 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\Users\Kate\Desktop\downloads\TX\TXLib.h
+Compiled:	Nov  8 2026 10:52:31, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Nov 08 2026 10:52:34
+
+Run file:	C:\Users\Kate\Desktop\DED-C_Tasks\Task 8 binary tree\tree-sorting.exe
+Directory:	C:\Users\Kate\Desktop\DED-C_Tasks\Task 8 binary tree
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: C:\Users\Kate\Desktop\DED-C_Tasks\Task 8 binary tree\tree-sorting.exe,
+
+ВНЕЗАПНО: Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x00437636 в функции insertObject() в файле C:/Users/Kate/Desktop/DED-C_Tasks/Task 8 binary tree/tree-sorting.cpp на строке 85. Попытка прочесть данные по адресу 0x00000008 в модуле C:\Users\Kate\Desktop\DED-C_Tasks\Task 8 binary tree\tree-sorting.exe. Спасибо _txUnhandledExceptionFilter(), что сообщил. Люблю его <3
+
+#1: TXLib [Ver: 00173a, Rev: 175, Date: 2025-12-31 23:02:50 +0400], Instance: 0x005131DC (32-bit), Flags: Cmdre0, Thread: 0x803C (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00437636 in C:\Users\Kate\Desktop\DED-C_Tasks\Task 8 binary tree\tree-sorting.exe: insertObject() at C:/Users/Kate/Desktop/DED-C_Tasks/Task 8 binary tree/tree-sorting.cpp:85:
+
+     83:     Node* parent = NULL;
+     84: 
+=>   85:     while(currentNode->right != NULL && currentNode->left != NULL){
+     86: 
+     87:         parent = currentNode;
+
+# 1 0x00437531 in C:\Users\Kate\Desktop\DED-C_Tasks\Task 8 binary tree\tree-sorting.exe: treeSorting() at C:/Users/Kate/Desktop/DED-C_Tasks/Task 8 binary tree/tree-sorting.cpp:48:
+
+     46:     for (size_t i = 0; i < size; i++) {
+     47: 
+=>   48:         ErrorCode error = insertObject(binaryTree, arr[i]);
+     49:         if (error != ERR_OK) return error;
+     50:     }
+
+# 2 0x00437410 in C:\Users\Kate\Desktop\DED-C_Tasks\Task 8 binary tree\tree-sorting.exe: main() at C:/Users/Kate/Desktop/DED-C_Tasks/Task 8 binary tree/tree-sorting.cpp:16:
+
+     14:     initBinaryTree(&binaryTree);
+     15: 
+=>   16:     treeSorting(arr, size, &binaryTree);
+     17: 
+     18:     printSortedTree(&binaryTree);
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 175, Date: 2025-12-31 23:02:50 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\Users\Kate\Desktop\downloads\TX\TXLib.h
+Compiled:	Nov  8 2026 10:52:31, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Nov 08 2026 10:53:22
+
+Run file:	C:\Users\Kate\Desktop\DED-C_Tasks\Task 8 binary tree\tree-sorting.exe
+Directory:	C:\Users\Kate\Desktop\DED-C_Tasks\Task 8 binary tree
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\Users\Kate\Desktop\DED-C_Tasks\Task 8 binary tree\tree-sorting.exe,
+
+ВНЕЗАПНО: signal (11, 0x00): SIGSEGV: Доступ по неверному указателю. Ставьте ассерты! 
+
+Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x00437636 в функции insertObject() в файле C:/Users/Kate/Desktop/DED-C_Tasks/Task 8 binary tree/tree-sorting.cpp на строке 85. Попытка прочесть данные по адресу 0x00000008 в модуле C:\Users\Kate\Desktop\DED-C_Tasks\Task 8 binary tree\tree-sorting.exe. Спасибо _txUnhandledExceptionFilter(), что сообщил. Люблю его <3
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#2: TXLib [Ver: 00173a, Rev: 175, Date: 2025-12-31 23:02:50 +0400], Instance: 0x005131DC (32-bit), Flags: Cmdre0, Thread: 0x803C (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00437636 in C:\Users\Kate\Desktop\DED-C_Tasks\Task 8 binary tree\tree-sorting.exe: insertObject() at C:/Users/Kate/Desktop/DED-C_Tasks/Task 8 binary tree/tree-sorting.cpp:85:
+
+     83:     Node* parent = NULL;
+     84: 
+=>   85:     while(currentNode->right != NULL && currentNode->left != NULL){
+     86: 
+     87:         parent = currentNode;
+
+# 1 0x00437531 in C:\Users\Kate\Desktop\DED-C_Tasks\Task 8 binary tree\tree-sorting.exe: treeSorting() at C:/Users/Kate/Desktop/DED-C_Tasks/Task 8 binary tree/tree-sorting.cpp:48:
+
+     46:     for (size_t i = 0; i < size; i++) {
+     47: 
+=>   48:         ErrorCode error = insertObject(binaryTree, arr[i]);
+     49:         if (error != ERR_OK) return error;
+     50:     }
+
+# 2 0x00437410 in C:\Users\Kate\Desktop\DED-C_Tasks\Task 8 binary tree\tree-sorting.exe: main() at C:/Users/Kate/Desktop/DED-C_Tasks/Task 8 binary tree/tree-sorting.cpp:16:
+
+     14:     initBinaryTree(&binaryTree);
+     15: 
+=>   16:     treeSorting(arr, size, &binaryTree);
+     17: 
+     18:     printSortedTree(&binaryTree);
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 175, Date: 2025-12-31 23:02:50 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\Users\Kate\Desktop\downloads\TX\TXLib.h
+Compiled:	Nov  8 2026 10:52:31, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Nov 08 2026 10:53:21
+
+Run file:	C:\Users\Kate\Desktop\DED-C_Tasks\Task 8 binary tree\tree-sorting.exe
+Directory:	C:\Users\Kate\Desktop\DED-C_Tasks\Task 8 binary tree
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\Users\Kate\Desktop\DED-C_Tasks\Task 8 binary tree\tree-sorting.exe,
+
+ВНЕЗАПНО: signal (22, 0x00): SIGABRT: Аварийное завершение программы, вызвана функция abort(). 
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#1: TXLib [Ver: 00173a, Rev: 175, Date: 2025-12-31 23:02:50 +0400], Instance: 0x005131DC (32-bit), Flags: Cmdre0, Thread: 0x5C7C (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00414FFE in C:\Users\Kate\Desktop\DED-C_Tasks\Task 8 binary tree\tree-sorting.exe: (anonymous namespace)::TX::_txOnSignal() at C:/Users/Kate/Desktop/downloads/TX/TXLib.h:11343
+# 1 0x76DD8F03 in C:\WINDOWS\System32\msvcrt.dll: raise()
+# 2 0x76DDD3CB in C:\WINDOWS\System32\msvcrt.dll: abort()
+# 3 0x76DD9D47 in C:\WINDOWS\System32\msvcrt.dll: assert()
+
+# 4 0x0043758F in C:\Users\Kate\Desktop\DED-C_Tasks\Task 8 binary tree\tree-sorting.exe: printSortedTreeNode() at C:/Users/Kate/Desktop/DED-C_Tasks/Task 8 binary tree/tree-sorting.cpp:62:
+
+     60: void printSortedTreeNode(const Node* node){
+     61: 
+=>   62:     assert(node);
+     63: 
+     64:     if (node->left != NULL) {
+
+# 5 0x00437565 in C:\Users\Kate\Desktop\DED-C_Tasks\Task 8 binary tree\tree-sorting.exe: printSortedTree() at C:/Users/Kate/Desktop/DED-C_Tasks/Task 8 binary tree/tree-sorting.cpp:57:
+
+     55: void printSortedTree(BinaryTree_t* binaryTree){
+     56: 
+=>   57:     printSortedTreeNode(binaryTree->root);
+     58: }
+     59: 
+
+# 6 0x0043741C in C:\Users\Kate\Desktop\DED-C_Tasks\Task 8 binary tree\tree-sorting.exe: main() at C:/Users/Kate/Desktop/DED-C_Tasks/Task 8 binary tree/tree-sorting.cpp:18:
+
+     16:     treeSorting(arr, size, &binaryTree);
+     17: 
+=>   18:     printSortedTree(&binaryTree);
+     19: 
+     20:     destroyBinaryTree(&binaryTree);
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 175, Date: 2025-12-31 23:02:50 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	C:\Users\Kate\Desktop\downloads\TX\TXLib.h
+Compiled:	Nov  8 2026 10:56:08, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Nov 08 2026 10:56:12
+
+Run file:	C:\Users\Kate\Desktop\DED-C_Tasks\Task 8 binary tree\tree-sorting.exe
+Directory:	C:\Users\Kate\Desktop\DED-C_Tasks\Task 8 binary tree
+
+--------------------------------------------------
