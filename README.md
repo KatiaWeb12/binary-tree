@@ -75,7 +75,7 @@ struct BinaryTree_t{
 Картинки создаются командой ```dot graph.txt -Tpng -o binary-tree-picture.png``` через ```system```.
 
 ### Пример картинки дерева
-<img src="binary-tree-picture.png" alt="Бинарное дерево" width="800" height="500">
+<img src="binary-tree-picture.png" alt="Бинарное дерево" width="1000" height="800">
 
 ## Структура проекта
 

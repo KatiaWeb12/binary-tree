@@ -82,7 +82,7 @@ static void recordGraphicBlock(Node* node, FILE* file){
     if(node->left != NULL){
         fprintf(file,
             "\tnode%p -> node%p "
-            "[color=\"#1947bd\"];\n",
+            "[color=\"#1947bd\", label=\"Да\"];\n",
             (const void*)node,
             (const void*)node->left);
     }
@@ -90,7 +90,7 @@ static void recordGraphicBlock(Node* node, FILE* file){
     if(node->right != NULL){
         fprintf(file,
             "\tnode%p -> node%p "
-            "[color=\"#1947bd\"];\n",
+            "[color=\"#1947bd\", label=\"Нет\"];\n",
             (const void*)node,
             (const void*)node->right);
     }

@@ -1,7 +1,7 @@
 static ErrorCode createTreeNode(BinaryTree_t* binaryTree,
                                 Node** currentNode,
                                 NodeElem_t value,
-                                Node** newNode);
+                                Node** newNode);//FIXME гк не найден
 static ErrorCode allocateMemoryForNode(Node** treeNode);
 static ErrorCode formBinaryTree(BinaryTree_t* binaryTree, char* treeText);
 static ErrorCode writeTreeNode(FILE* file, const Node* node);
@@ -56,6 +56,8 @@ static ErrorCode formBinaryTree(BinaryTree_t* binaryTree, char* treeText){
     Node* currentNode = NULL;
 
     char* current = treeText;
+
+    toLowerCase(treeText);
 
     while(*current != '\0'){
 
@@ -405,4 +407,11 @@ static ErrorCode verifyNode(const Node* node,
     }
 
     return ERR_OK;
+}
+
+void toLowerCase(char* str){
+
+    assert(str);
+
+    CharLowerBuffA(str, (DWORD)strlen(str));
 }

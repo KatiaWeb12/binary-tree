@@ -166,7 +166,7 @@ ErrorCode guessObject(BinaryTree_t* binaryTree){
 
         bool answer = getAnswer();
 
-        current = answer ? current->right : current->left;
+        current = answer ? current->left : current->right;
     }
 
     printf("\nТы загадал %s?\n", current->data);
@@ -472,8 +472,8 @@ ErrorCode getNewObject(BinaryTree_t* binaryTree, Node* node){
     if(getAnswer()){
 
         node->data = newQuestion;
-        node->right = newNode;
-        node->left = lastNode;
+        node->right = lastNode;
+        node->left = newNode;
 
         binaryTree->dim += 2;
 
@@ -505,11 +505,4 @@ void speak(const char* text){
     if (result == -1) {
         printf("Speech error!\n");
     }
-}
-
-void toLowerCase(char* str){
-
-    assert(str);
-
-    CharLowerBuffA(str, (DWORD)strlen(str));
 }
