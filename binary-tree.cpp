@@ -1,7 +1,7 @@
 static ErrorCode createTreeNode(BinaryTree_t* binaryTree,
                                 Node** currentNode,
                                 NodeElem_t value,
-                                Node** newNode);//FIXME гк не найден
+                                Node** newNode);
 static ErrorCode allocateMemoryForNode(Node** treeNode);
 static ErrorCode formBinaryTree(BinaryTree_t* binaryTree, char* treeText);
 static ErrorCode writeTreeNode(FILE* file, const Node* node);
@@ -61,7 +61,7 @@ static ErrorCode formBinaryTree(BinaryTree_t* binaryTree, char* treeText){
 
     while(*current != '\0'){
 
-        if (isspace((unsigned char)*current)) {
+        if (isspace(*current)) {
 
             current++;
             continue;
@@ -101,18 +101,6 @@ static ErrorCode formBinaryTree(BinaryTree_t* binaryTree, char* treeText){
             return ERR_INVALID_ARGUMENT;
         }
 
-    }
-
-    if(currentNode != NULL || binaryTree->root == NULL){
-        error_debug debugLogInfo = {};
-        ERROR_STRUCT_FORMAT(&debugLogInfo,
-                            __func__,
-                            __LINE__,
-                            "Incorrect input-data. Invalid brackets sequence.",
-                            ERR_INVALID_ARGUMENT);
-        printErrorIntoConsole(&debugLogInfo);
-
-        return ERR_INVALID_ARGUMENT;
     }
 
     return ERR_OK;
@@ -177,6 +165,8 @@ static ErrorCode afterOpenedBracket(BinaryTree_t* binaryTree, char** current, No
         value[i] = start[i];
     }
 
+    value[length] = '\0';
+
     (*current)++;
 
     Node* newNode = NULL;
@@ -204,6 +194,7 @@ static ErrorCode createTreeNode(BinaryTree_t* binaryTree,
 
     assert(currentNode);
     assert(binaryTree);
+    assert(newNode);
 
     ErrorCode error = allocateMemoryForNode(newNode);
     if(error != ERR_OK) return error;
@@ -220,6 +211,7 @@ static ErrorCode createTreeNode(BinaryTree_t* binaryTree,
             (*newNode)->parent->left = *newNode;
         }
         else if((*newNode)->parent->right == NULL){
+
             (*newNode)->parent->right = *newNode;
         }
 

@@ -195,7 +195,7 @@ void identifyObject(BinaryTree_t* binaryTree){
     printf("Введите объект: ");
 
     char value[50] = "";
-    scanf("%s", value);
+    readLine(value, 50);
 
     bool result = seachValue(binaryTree->root, value);
     if(!result) printf("Объекта '%s' не существует в нашей базе.\n", value);
@@ -210,12 +210,10 @@ bool seachValue(Node* node, NodeElem_t value){
         printIdentify(node, value);
         return true;
     }
-
-    if (seachValue(node->left, value)) {
+    if (seachValue(node->left, value)){
         return true;
     }
-
-    if (seachValue(node->right, value)) {
+    if (seachValue(node->right, value)){
         return true;
     }
 
@@ -244,10 +242,10 @@ void printPathFromRoot(Node* node){
 
         printPathFromRoot(node->parent);
 
-        if(node->parent->left == node){
+        if(node->parent->right == node){
             printf("НЕ %s | ", node->parent->data);
         }
-        else{
+        else if (node->parent->left == node){
             printf("%s | ", node->parent->data);
         }
     }
@@ -261,14 +259,14 @@ void comparisonObjects(BinaryTree_t* binaryTree){
     char object2[MAX_ANSWER_LENGTH] = "";
 
     printf("Введи первый объект: ");
-    if (readLine(object1, sizeof(object1)) != ERR_OK) {
-        return;
-    }
+
+    ErrorCode error = readLine(object1, sizeof(object1));
+    if (error != ERR_OK) return;
 
     printf("Введи второй объект: ");
-    if (readLine(object2, sizeof(object2)) != ERR_OK) {
-        return;
-    }
+
+    error = readLine(object2, sizeof(object2));
+    if (error != ERR_OK) return;
 
     Node* node1 = findObject(binaryTree->root, object1);
     Node* node2 = findObject(binaryTree->root, object2);
@@ -321,7 +319,7 @@ Node* findCommonAncestor(Node* node1, Node* node2){
 
     Node* current = node1;
 
-    while (current != NULL) {
+    while (current != NULL){
 
         if (isAncestor(current, node2)) return current;
 
@@ -366,7 +364,7 @@ void printCondition(Node* node){
     assert(node);
     assert(node->parent);
 
-    if (node->parent->left == node) {
+    if (node->parent->right == node) {
         printf("| НЕ %s ", node->parent->data);
     }
     else {
@@ -451,7 +449,7 @@ ErrorCode getNewObject(BinaryTree_t* binaryTree, Node* node){
         return ERR_INVALID_DATA;
     }
 
-    char* newQuestion = (char*)calloc(strlen(question) + 1, sizeof(char));
+    char* newQuestion = (char*)calloc(strlen(question), sizeof(char));
     if (newQuestion == NULL) {
 
         error_debug debugLogInfo = {};
@@ -477,7 +475,10 @@ ErrorCode getNewObject(BinaryTree_t* binaryTree, Node* node){
 
         binaryTree->dim += 2;
 
+        changeFilesComplication(binaryTree);
+
         printf("В систему был добавлен новый объект.\n");
+
         //speak("В систему был добавлен новый объект.");
     }
 

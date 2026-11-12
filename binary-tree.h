@@ -3,7 +3,7 @@
 #include <sys/stat.h>
 #include <assert.h>
 #include <stdlib.h>
-#include <cctype>
+#include <cctype> // для isspace
 #include <locale.h>
 
 const size_t MAX_PATH_LENGTH = 300;
