@@ -58,12 +58,12 @@ ErrorCode insertObject(BinaryTree_t* binaryTree, NodeElem_t value);
 ErrorCode readLine(char* buffer, size_t capacity);
 bool getAnswer();
 Node* createNewAkinatorNode(const char* text, Node* parent);
-ErrorCode getNewObject(BinaryTree_t* binaryTree, Node* node);
+ErrorCode getNewObject(BinaryTree_t* binaryTree, Node* node, Node** newObject);
 ErrorCode playAkinator(BinaryTree_t* binaryTree);
 void addRootEl(BinaryTree_t* binaryTree);
 ErrorCode changeFilesComplication(BinaryTree_t* binaryTree);
 int getMenuPoint();
-ErrorCode guessObject(BinaryTree_t* binaryTree);
+ErrorCode guessObject(BinaryTree_t* binaryTree, Node** newObject);
 void identifyObject(BinaryTree_t* binaryTree);
 bool seachValue(Node* node, NodeElem_t value);
 void printIdentify(Node* node, const char* value);
@@ -79,7 +79,7 @@ void comparisonObjects(BinaryTree_t* binaryTree);
 void toLowerCase(char* str);
 
 // Graphics
-ErrorCode createDebugImage(BinaryTree_t* binaryTree);
+ErrorCode createDebugImage(BinaryTree_t* binaryTree, Node** newObject);
 
 
 

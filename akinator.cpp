@@ -84,6 +84,8 @@ ErrorCode playAkinator(BinaryTree_t* binaryTree){
 
     ErrorCode error = ERR_OK;
 
+    Node* newObject = NULL;
+
     int chosenMenuPoint = getMenuPoint();
 
     while(chosenMenuPoint != EXIT_GAME){
@@ -91,12 +93,12 @@ ErrorCode playAkinator(BinaryTree_t* binaryTree){
         switch (chosenMenuPoint){
 
             case GUESS: {
-                error = guessObject(binaryTree);
+                error = guessObject(binaryTree, &newObject);
                 if(error != ERR_OK) return error;
                 break;
             }
             case WATCH: {
-                createDebugImage(binaryTree);
+                createDebugImage(binaryTree, &newObject);
                 break;
             }
             case IDENTIFY: {
@@ -150,7 +152,7 @@ int getMenuPoint(){
     return chosenMenuPoint;
 }
 
-ErrorCode guessObject(BinaryTree_t* binaryTree){
+ErrorCode guessObject(BinaryTree_t* binaryTree, Node** newNode){
 
     assert(binaryTree);
 
@@ -182,7 +184,7 @@ ErrorCode guessObject(BinaryTree_t* binaryTree){
 
         printf("Похоже, что я не знаю этот объект.\n");
         //speak("Похоже, что я не знаю этот объект.");
-        return getNewObject(binaryTree, current);
+        return getNewObject(binaryTree, current, newNode);
     }
 
     return ERR_OK;
@@ -197,31 +199,45 @@ void identifyObject(BinaryTree_t* binaryTree){
     char value[50] = "";
     readLine(value, 50);
 
+    ErrorCode error = STACK_INIT(&stk1, 3);
+    if(error){
+        printf("The function STACK_INIT was completed with an error code: %d\n", error);
+        return error;
+    }
+
+    seachValue(node, value, &stack);
+
+    printIdentify(node, value, &stack);
+
     bool result = seachValue(binaryTree->root, value);
     if(!result) printf("Объекта '%s' не существует в нашей базе.\n", value);
 }
 
-bool seachValue(Node* node, NodeElem_t value){
+ErrorCode seachValue(Node* node, NodeElem_t value, stack_t* stack){
+
+    assert(stack);
 
     if (node == NULL) return false;
 
-    if(node->data != NULL && strcmp(node->data, value) == 0){
+    ErrorCode error = ERR_OK;
 
-        printIdentify(node, value);
-        return true;
-    }
-    if (seachValue(node->left, value)){
-        return true;
-    }
-    if (seachValue(node->right, value)){
-        return true;
+    Node* current = node;
+
+    while(node->parent != NULL){
+
+        error = stackPush(stack, node);
+        if(error){
+            printf("The function stackPush was completed with an error code: %d\n", error);
+            return error;
+        }
+
+        current = current->parent;
     }
 
-    return false;
-
+    return ERR_OK;
 }
 
-void printIdentify(Node* node, const char* value){
+ErrorCode printIdentify(Node* node, const NodeElem_t value, stack_t stack){
 
     assert(node);
 
@@ -229,7 +245,26 @@ void printIdentify(Node* node, const char* value){
     //speak("Определение");
     //speak(value);
 
-    printPathFromRoot(node);
+    while(stack.size > 0){
+
+        Node* current = NULL;
+
+        error = stackPop(&stk1, &current);
+        if(error){
+            printf("The function stackPop was completed with an error code: %d\n", error);
+            return error;
+        }
+
+        if (current->parent == NULL){
+            printf("%s | ", current->data);
+        }
+        else if(current->parent->right == current){
+            printf("НЕ %s | ", current->data);
+        }
+        else if (current->parent->left == node){
+            printf("%s | ", current->data);
+        }
+    }
 
     printf("\n");
 }
@@ -268,7 +303,13 @@ void comparisonObjects(BinaryTree_t* binaryTree){
     error = readLine(object2, sizeof(object2));
     if (error != ERR_OK) return;
 
-    Node* node1 = findObject(binaryTree->root, object1);
+    ErrorCode error = STACK_INIT(&stk1, 3);
+    if(error){
+        printf("The function STACK_INIT was completed with an error code: %d\n", error);
+        return error;
+    }
+
+    findObject(binaryTree->root, object1);
     Node* node2 = findObject(binaryTree->root, object2);
 
     if (node1 == NULL) {
@@ -404,7 +445,7 @@ Node* createNewAkinatorNode(const char* text, Node* parent){
     return newNode;
 }
 
-ErrorCode getNewObject(BinaryTree_t* binaryTree, Node* node){
+ErrorCode getNewObject(BinaryTree_t* binaryTree, Node* node, Node** newObject){
 
     assert(binaryTree);
     assert(node);
@@ -474,6 +515,8 @@ ErrorCode getNewObject(BinaryTree_t* binaryTree, Node* node){
         node->left = newNode;
 
         binaryTree->dim += 2;
+
+        *newObject = newNode;
 
         changeFilesComplication(binaryTree);
 

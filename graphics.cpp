@@ -1,13 +1,13 @@
-static ErrorCode formPicture(BinaryTree_t* binaryTree);
-static void recordGraphicBlock(Node* node, FILE* file);
+static ErrorCode formPicture(BinaryTree_t* binaryTree, Node** newObject);
+static void recordGraphicBlock(Node* node, FILE* file, Node** newObject);
 static void transliterate(const char* source, char* destination);
 static const char* transliterateChar(unsigned char symbol);
 
-ErrorCode createDebugImage(BinaryTree_t* binaryTree){
+ErrorCode createDebugImage(BinaryTree_t* binaryTree, Node** newObject){
 
     assert(binaryTree);
 
-    ErrorCode error = formPicture(binaryTree);
+    ErrorCode error = formPicture(binaryTree, newObject);
     if (error != ERR_OK) return error;
 
     system("dot graph.txt -Tpng -o binary-tree-picture.png");
@@ -18,7 +18,7 @@ ErrorCode createDebugImage(BinaryTree_t* binaryTree){
 
 }
 
-static ErrorCode formPicture(BinaryTree_t* binaryTree){
+static ErrorCode formPicture(BinaryTree_t* binaryTree, Node** newObject){
 
     assert(binaryTree);
 
@@ -48,7 +48,6 @@ static ErrorCode formPicture(BinaryTree_t* binaryTree){
         "node ["
         "shape=Mrecord, "
         "style=filled, "
-        "fillcolor=\"#FFC0FF\", "
         "color=\"#481569\", "
         "fontcolor=\"#481569\", "
         "fontname=\"Arial\", "
@@ -56,7 +55,7 @@ static ErrorCode formPicture(BinaryTree_t* binaryTree){
         "margin=\"0.18,0.10\""
         "];\n");
 
-    recordGraphicBlock(binaryTree->root, graphicCodeFile);
+    recordGraphicBlock(binaryTree->root, graphicCodeFile, newObject);
 
     fprintf(graphicCodeFile, "\n}\n");
 
@@ -65,7 +64,7 @@ static ErrorCode formPicture(BinaryTree_t* binaryTree){
     return ERR_OK;
 }
 
-static void recordGraphicBlock(Node* node, FILE* file){
+static void recordGraphicBlock(Node* node, FILE* file, Node** newObject){
 
     assert(file);
 
@@ -74,10 +73,19 @@ static void recordGraphicBlock(Node* node, FILE* file){
     char transliteratedData[MAX_PROGRAM_CAPACITY] = "";
     transliterate(node->data, transliteratedData);
 
-    fprintf(file,
-            "node%p [label = \"" PRINT_NODE_FORMAT "\";]\n",
+    if(node == *newObject){
+
+        fprintf(file,
+            "node%p [fillcolor=\"#f55a5f\", label = \"" PRINT_NODE_FORMAT "\";]\n",
             (const void*)node,
             transliteratedData);
+    }
+    else{
+        fprintf(file,
+            "node%p [fillcolor=\"#FFC0FF\", label = \"" PRINT_NODE_FORMAT "\";]\n",
+            (const void*)node,
+            transliteratedData);
+    }
 
     if(node->left != NULL){
         fprintf(file,
@@ -95,8 +103,8 @@ static void recordGraphicBlock(Node* node, FILE* file){
             (const void*)node->right);
     }
 
-    recordGraphicBlock(node->left, file);
-    recordGraphicBlock(node->right, file);
+    recordGraphicBlock(node->left, file, newObject);
+    recordGraphicBlock(node->right, file, newObject);
 
 }
 
